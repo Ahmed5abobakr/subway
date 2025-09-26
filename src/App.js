@@ -44,6 +44,20 @@ function Game() {
     return () => window.removeEventListener("keydown", handler);
   }, [playerLane, running]);
 
+    const moveLeft = () => {
+    if (!running) return;
+    if (playerLane > 0) {
+      setPlayerLane((p) => p - 1);
+      playJump();
+    }
+  };
+    const moveRight = () => {
+    if (!running) return;
+    if (playerLane < 2) {
+      setPlayerLane((p) => p + 1);
+      playJump();
+    }
+  };
   // load sounds
   useEffect(() => {
     musicRef.current = new Audio(
@@ -175,6 +189,11 @@ function Game() {
       <div className="hud">
         <p>Score: {score}</p>
         <p>Coins: {coinsCollected}</p>
+      </div>
+            {/* on-screen controls */}
+      <div className="controls">
+        <button onClick={moveLeft}>⬅️</button>
+        <button onClick={moveRight}>➡️</button>
       </div>
     </div>
   );
