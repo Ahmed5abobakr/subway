@@ -1,0 +1,66 @@
+.app-root {
+  text-align: center;
+}
+
+.game-area {
+  position: relative;
+  width: 320px;
+  height: 600px;
+  margin: 20px auto;
+  background: linear-gradient(1000deg,rgb(0, 255, 98),rgb(208, 255, 0));
+  overflow: hidden;
+  border-radius: 10px;
+  border: 2px solid rgb(255, 153, 0);
+}
+
+/* اللاعب */
+.player {
+  position: absolute;
+  bottom: 20px;       /* يظهر قريب من تحت */
+  left: 50%;          /* في النص */
+  transform: translateX(-50%);
+  
+}
+
+.player img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid black;
+}
+
+/* العقبات */
+.obstacle {
+  position: absolute;
+  top: 0;
+}
+
+.obstacle img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid black;
+}
+
+/* الكوين */
+.coin {
+  position: absolute;
+  top: 0;
+}
+
+.coin img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid black;
+}
+
+/* الهيد */
+.hud {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+}
