@@ -1,45 +1,58 @@
 .app-root {
   text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(160deg, #0f2027, #203a43, #2c5364);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 20px;
+  color: white;
 }
 
+/* ساحة اللعبة */
 .game-area {
-  position: relative;
-  width: 320px;
+  position: absolute;
+  width: 360px;
   height: 600px;
   margin: 20px auto;
-  background: linear-gradient(1000deg,rgb(0, 255, 98),rgb(208, 255, 0));
+  background: linear-gradient(180deg, #4facfe, #00f2fe);
   overflow: hidden;
-  border-radius: 10px;
-  border: 2px solid rgb(255, 153, 0);
+  border-radius: 20px;
+  border: 3px solid #ffcc00;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
 }
 
 /* اللاعب */
 .player {
   position: absolute;
-  bottom: 20px;       /* يظهر قريب من تحت */
-  left: 50%;          /* في النص */
+  bottom: 50px;
+  left: 50%;
   transform: translateX(-50%);
-  
 }
 
 .player img {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  border: 2px solid black;
+  border: 3px solid #fff;
+  box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
 }
 
 /* العقبات */
 .obstacle {
   position: absolute;
   top: 0;
+  transition: top 0.1s linear;
 }
 
 .obstacle img {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: 2px solid black;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 2px solid #222;
+  background: #ff4d4d;
+  box-shadow: 0 0 10px #ff0000, 0 0 20px #990000;
 }
 
 /* الكوين */
@@ -49,43 +62,112 @@
 }
 
 .coin img {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  border: 2px solid black;
+  border: 3px solid #ffcc00;
+  background: gold;
+  box-shadow: 0 0 15px #ffd700, 0 0 30px #ffcc00;
+  animation: spin 1s linear infinite;
+}
+
+/* حركة دوران للكويـن */
+@keyframes spin {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
 }
 
 /* الهيد */
 .hud {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  color: #fff;
-  font-weight: bold;
-  font-size: 18px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    text-shadow: 2px 2px 5px #000;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 5px 2px;
+    border-radius: 10px;
+}
+.sidi {
+
+    background: linear-gradient(160deg, #0f2027, #203a43, #2c5364);
 }
 
+/* أزرار التحكم */
 .controls {
   position: absolute;
-  bottom: 5px;
+  bottom: 15px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  padding: 10 30px;
+  justify-content: space-around;
+  
 }
 
 .controls button {
-  font-size: 32px;
-  padding: 20px 30px;
+  font-size: 28px;
+  padding: 18px;
   border-radius: 50%;
   border: none;
-  background: rgba(0,0,0,0.6);
-  color: white;
+  background: radial-gradient(circle, #333, #000);
+  color: #fff;
   cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7),
+    0 0 10px rgba(0, 255, 255, 0.6);
+  transition: all 0.2s ease;
+}
+
+.controls button:hover {
+  background: radial-gradient(circle, #555, #111);
+  transform: scale(1.1);
 }
 
 .controls button:active {
-  background: rgba(255,255,255,0.6);
-  color: black;
+  background: #00ffcc;
+  color: #000;
+  transform: scale(0.95);
+}
+/* HUD Buttons */
+.hud-buttons {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.hud-buttons button {
+  background: linear-gradient(145deg, #ffcc00, #ff9900);
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4),
+              0 0 10px rgba(255, 200, 0, 0.7);
+  transition: all 0.2s ease;
+}
+
+.hud-buttons button:hover {
+  background: linear-gradient(145deg, #ffee33, #ffbb00);
+  transform: scale(1.1);
+}
+
+.hud-buttons button:active {
+  transform: scale(0.95);
+  background: #fff000;
+}
+
+
+
+  .didi {
+color: white;
+display: flex;
+justify-content: center;
 }
 
